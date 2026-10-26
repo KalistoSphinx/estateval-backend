@@ -10,7 +10,10 @@ import joblib
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from backend.schemas import HouseFeatures, ModelPrediction, MultiPredictionResponse
+try:
+    from schemas import HouseFeatures, ModelPrediction, MultiPredictionResponse
+except ImportError:
+    from backend.schemas import HouseFeatures, ModelPrediction, MultiPredictionResponse
 
 BASE_DIR = Path(__file__).resolve().parent
 MODELS_DIR = BASE_DIR / "models"
