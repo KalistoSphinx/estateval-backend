@@ -1,0 +1,2453 @@
+{
+  "generated_at": "2026-10-26 21:10:31",
+  "dataset_summary": {
+    "total_records": 12000,
+    "target_stats": {
+      "min": 1356119.0,
+      "max": 57552829.0,
+      "mean": 10204060.959833333,
+      "median": 8558739.5,
+      "std": 6707594.783230848
+    },
+    "city_distribution": {
+      "Mumbai": 3056,
+      "Pune": 2674,
+      "Bangalore": 2410,
+      "Hyderabad": 2125,
+      "Nagpur": 1735
+    },
+    "city_avg_prices": {
+      "Bangalore": 9801245.86307054,
+      "Hyderabad": 7653229.194352942,
+      "Mumbai": 16182482.718586387,
+      "Nagpur": 5508933.752737752,
+      "Pune": 8808133.77000748
+    },
+    "locality_distribution": {
+      "Mid": 5973,
+      "Premium": 3024,
+      "Budget": 3003
+    },
+    "furnishing_distribution": {
+      "Unfurnished": 4767,
+      "Semi-Furnished": 4365,
+      "Fully-Furnished": 2868
+    },
+    "bhk_distribution": {
+      "1": 2266,
+      "2": 5354,
+      "3": 3016,
+      "4": 1192,
+      "5": 172
+    },
+    "tier_counts": {
+      "Mid-Range (\u20b960L\u2013\u20b91Cr)": 3762,
+      "Budget (< \u20b960L)": 3422,
+      "Premium (\u20b91Cr\u2013\u20b91.75Cr)": 3371,
+      "Luxury (> \u20b91.75Cr)": 1445
+    }
+  },
+  "models": {
+    "linear_regression": {
+      "name": "Linear Regression (Ridge Regularized)",
+      "short_name": "Linear Regression",
+      "algorithm_type": "Linear / Ridge L2 Regularization",
+      "train_time_sec": 4.49,
+      "latency_ms_per_prediction": 0.002,
+      "best_hyperparameters": {
+        "alpha": 1.0,
+        "fit_intercept": true,
+        "solver": "lsqr"
+      },
+      "tuning_summary": "5-Fold Cross Validation optimizing Ridge alpha regularization penalty & solver.",
+      "metrics": {
+        "r2_score": 0.9152,
+        "adjusted_r2": 0.9146,
+        "mae": 1326796.0,
+        "rmse": 1939616.0,
+        "mape_percent": 20.1,
+        "median_absolute_error": 943933.0,
+        "max_error": 14967203.0,
+        "explained_variance": 0.9152
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 85.42,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 646
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 61
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 54
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 543
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 175
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 10
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 600
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 44
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 6
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 261
+            }
+          ]
+        ],
+        "raw_matrix": [
+          [
+            646,
+            61,
+            0,
+            0
+          ],
+          [
+            54,
+            543,
+            175,
+            0
+          ],
+          [
+            0,
+            10,
+            600,
+            44
+          ],
+          [
+            0,
+            0,
+            6,
+            261
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.923,
+            "recall": 0.914,
+            "f1_score": 0.918,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.884,
+            "recall": 0.703,
+            "f1_score": 0.784,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.768,
+            "recall": 0.917,
+            "f1_score": 0.836,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.856,
+            "recall": 0.978,
+            "f1_score": 0.913,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "mean": -4893.0,
+        "std": 1939609.69,
+        "histogram": [
+          {
+            "bin_start": -77.8,
+            "bin_end": -62.7,
+            "count": 3
+          },
+          {
+            "bin_start": -62.7,
+            "bin_end": -47.5,
+            "count": 8
+          },
+          {
+            "bin_start": -47.5,
+            "bin_end": -32.3,
+            "count": 39
+          },
+          {
+            "bin_start": -32.3,
+            "bin_end": -17.2,
+            "count": 323
+          },
+          {
+            "bin_start": -17.2,
+            "bin_end": -2.0,
+            "count": 695
+          },
+          {
+            "bin_start": -2.0,
+            "bin_end": 13.2,
+            "count": 957
+          },
+          {
+            "bin_start": 13.2,
+            "bin_end": 28.3,
+            "count": 260
+          },
+          {
+            "bin_start": 28.3,
+            "bin_end": 43.5,
+            "count": 62
+          },
+          {
+            "bin_start": 43.5,
+            "bin_end": 58.7,
+            "count": 24
+          },
+          {
+            "bin_start": 58.7,
+            "bin_end": 73.8,
+            "count": 11
+          },
+          {
+            "bin_start": 73.8,
+            "bin_end": 89.0,
+            "count": 5
+          },
+          {
+            "bin_start": 89.0,
+            "bin_end": 104.2,
+            "count": 4
+          },
+          {
+            "bin_start": 104.2,
+            "bin_end": 119.3,
+            "count": 2
+          },
+          {
+            "bin_start": 119.3,
+            "bin_end": 134.5,
+            "count": 3
+          },
+          {
+            "bin_start": 134.5,
+            "bin_end": 149.7,
+            "count": 4
+          }
+        ],
+        "percentiles": {
+          "p50": 943932.9890623093,
+          "p75": 1790193.9175429756,
+          "p90": 2811983.4588123215,
+          "p95": 3529581.4232368646,
+          "p99": 7146784.199179459
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 663251.0,
+          "rmse": 846150.0,
+          "r2": 0.974
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 1057595.0,
+          "rmse": 1355639.0,
+          "r2": 0.8781
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 2304374.0,
+          "rmse": 3088237.0,
+          "r2": 0.8606
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 1704472.0,
+          "rmse": 2166096.0,
+          "r2": 0.3919
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 799900.0,
+          "rmse": 989071.0,
+          "r2": 0.9516
+        }
+      }
+    },
+    "knn": {
+      "name": "K-Nearest Neighbors Regressor",
+      "short_name": "KNN Regressor",
+      "algorithm_type": "Instance-based Non-Parametric",
+      "train_time_sec": 2.51,
+      "latency_ms_per_prediction": 0.051,
+      "best_hyperparameters": {
+        "n_neighbors": 9,
+        "p": 1,
+        "weights": "distance"
+      },
+      "tuning_summary": "4-Fold CV tuning neighbor count (k=5..15), distance weighting, and Manhattan/Euclidean metrics.",
+      "metrics": {
+        "r2_score": 0.8967,
+        "adjusted_r2": 0.8959,
+        "mae": 1429375.0,
+        "rmse": 2141152.0,
+        "mape_percent": 16.68,
+        "median_absolute_error": 946752.0,
+        "max_error": 19780432.0,
+        "explained_variance": 0.8968
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 77.38,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 546
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 161
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 50
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 587
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 133
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 2
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 92
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 517
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 45
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 60
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 207
+            }
+          ]
+        ],
+        "raw_matrix": [
+          [
+            546,
+            161,
+            0,
+            0
+          ],
+          [
+            50,
+            587,
+            133,
+            2
+          ],
+          [
+            0,
+            92,
+            517,
+            45
+          ],
+          [
+            0,
+            0,
+            60,
+            207
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.916,
+            "recall": 0.772,
+            "f1_score": 0.838,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.699,
+            "recall": 0.76,
+            "f1_score": 0.728,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.728,
+            "recall": 0.791,
+            "f1_score": 0.758,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.815,
+            "recall": 0.775,
+            "f1_score": 0.795,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "mean": -79731.08,
+        "std": 2139666.61,
+        "histogram": [
+          {
+            "bin_start": -114.8,
+            "bin_end": -94.0,
+            "count": 5
+          },
+          {
+            "bin_start": -94.0,
+            "bin_end": -73.1,
+            "count": 4
+          },
+          {
+            "bin_start": -73.1,
+            "bin_end": -52.3,
+            "count": 16
+          },
+          {
+            "bin_start": -52.3,
+            "bin_end": -31.5,
+            "count": 64
+          },
+          {
+            "bin_start": -31.5,
+            "bin_end": -10.6,
+            "count": 543
+          },
+          {
+            "bin_start": -10.6,
+            "bin_end": 10.2,
+            "count": 1295
+          },
+          {
+            "bin_start": 10.2,
+            "bin_end": 31.1,
+            "count": 315
+          },
+          {
+            "bin_start": 31.1,
+            "bin_end": 51.9,
+            "count": 100
+          },
+          {
+            "bin_start": 51.9,
+            "bin_end": 72.8,
+            "count": 37
+          },
+          {
+            "bin_start": 72.8,
+            "bin_end": 93.6,
+            "count": 10
+          },
+          {
+            "bin_start": 93.6,
+            "bin_end": 114.4,
+            "count": 8
+          },
+          {
+            "bin_start": 114.4,
+            "bin_end": 135.3,
+            "count": 2
+          },
+          {
+            "bin_start": 135.3,
+            "bin_end": 156.1,
+            "count": 0
+          },
+          {
+            "bin_start": 156.1,
+            "bin_end": 177.0,
+            "count": 0
+          },
+          {
+            "bin_start": 177.0,
+            "bin_end": 197.8,
+            "count": 1
+          }
+        ],
+        "percentiles": {
+          "p50": 946751.9206726376,
+          "p75": 1845528.1098254728,
+          "p90": 3163861.1204889156,
+          "p95": 4287847.953551548,
+          "p99": 8030285.03595164
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 1192609.0,
+          "rmse": 1598848.0,
+          "r2": 0.907
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 1195234.0,
+          "rmse": 1766146.0,
+          "r2": 0.793
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 2261119.0,
+          "rmse": 3168717.0,
+          "r2": 0.8532
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 1350138.0,
+          "rmse": 2027142.0,
+          "r2": 0.4674
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 948265.0,
+          "rmse": 1331967.0,
+          "r2": 0.9122
+        }
+      }
+    },
+    "random_forest": {
+      "name": "Random Forest Regressor",
+      "short_name": "Random Forest",
+      "algorithm_type": "Ensemble Bagging of Decision Trees",
+      "train_time_sec": 11.4,
+      "latency_ms_per_prediction": 0.018,
+      "best_hyperparameters": {
+        "n_estimators": 100,
+        "min_samples_split": 4,
+        "min_samples_leaf": 2,
+        "max_features": 1.0,
+        "max_depth": 30
+      },
+      "tuning_summary": "Randomized Search CV optimizing estimators, max depth, leaf samples, and feature subspace sampling.",
+      "metrics": {
+        "r2_score": 0.9853,
+        "adjusted_r2": 0.9852,
+        "mae": 586795.0,
+        "rmse": 806521.0,
+        "mape_percent": 6.49,
+        "median_absolute_error": 429562.0,
+        "max_error": 5165671.0,
+        "explained_variance": 0.9853
+      },
+      "confusion_matrix": {
+        "tier_accuracy": 90.67,
+        "labels": [
+          "Budget (< \u20b960L)",
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+          "Luxury (> \u20b91.75Cr)"
+        ],
+        "matrix": [
+          [
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 656
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 51
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Budget (< \u20b960L)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 37
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 684
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 51
+            },
+            {
+              "actual": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 0
+            }
+          ],
+          [
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 46
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 587
+            },
+            {
+              "actual": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 21
+            }
+          ],
+          [
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Budget (< \u20b960L)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+              "count": 0
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+              "count": 18
+            },
+            {
+              "actual": "Luxury (> \u20b91.75Cr)",
+              "predicted": "Luxury (> \u20b91.75Cr)",
+              "count": 249
+            }
+          ]
+        ],
+        "raw_matrix": [
+          [
+            656,
+            51,
+            0,
+            0
+          ],
+          [
+            37,
+            684,
+            51,
+            0
+          ],
+          [
+            0,
+            46,
+            587,
+            21
+          ],
+          [
+            0,
+            0,
+            18,
+            249
+          ]
+        ],
+        "tier_breakdown": {
+          "Budget (< \u20b960L)": {
+            "precision": 0.947,
+            "recall": 0.928,
+            "f1_score": 0.937,
+            "support": 707
+          },
+          "Mid-Range (\u20b960L\u2013\u20b91Cr)": {
+            "precision": 0.876,
+            "recall": 0.886,
+            "f1_score": 0.881,
+            "support": 772
+          },
+          "Premium (\u20b91Cr\u2013\u20b91.75Cr)": {
+            "precision": 0.895,
+            "recall": 0.898,
+            "f1_score": 0.896,
+            "support": 654
+          },
+          "Luxury (> \u20b91.75Cr)": {
+            "precision": 0.922,
+            "recall": 0.933,
+            "f1_score": 0.927,
+            "support": 267
+          }
+        }
+      },
+      "residuals": {
+        "mean": -18566.38,
+        "std": 806306.88,
+        "histogram": [
+          {
+            "bin_start": -41.5,
+            "bin_end": -35.3,
+            "count": 5
+          },
+          {
+            "bin_start": -35.3,
+            "bin_end": -29.1,
+            "count": 2
+          },
+          {
+            "bin_start": -29.1,
+            "bin_end": -22.9,
+            "count": 16
+          },
+          {
+            "bin_start": -22.9,
+            "bin_end": -16.7,
+            "count": 37
+          },
+          {
+            "bin_start": -16.7,
+            "bin_end": -10.5,
+            "count": 128
+          },
+          {
+            "bin_start": -10.5,
+            "bin_end": -4.2,
+            "count": 437
+          },
+          {
+            "bin_start": -4.2,
+            "bin_end": 2.0,
+            "count": 918
+          },
+          {
+            "bin_start": 2.0,
+            "bin_end": 8.2,
+            "count": 571
+          },
+          {
+            "bin_start": 8.2,
+            "bin_end": 14.4,
+            "count": 199
+          },
+          {
+            "bin_start": 14.4,
+            "bin_end": 20.6,
+            "count": 60
+          },
+          {
+            "bin_start": 20.6,
+            "bin_end": 26.8,
+            "count": 13
+          },
+          {
+            "bin_start": 26.8,
+            "bin_end": 33.0,
+            "count": 11
+          },
+          {
+            "bin_start": 33.0,
+            "bin_end": 39.2,
+            "count": 1
+          },
+          {
+            "bin_start": 39.2,
+            "bin_end": 45.4,
+            "count": 1
+          },
+          {
+            "bin_start": 45.4,
+            "bin_end": 51.7,
+            "count": 1
+          }
+        ],
+        "percentiles": {
+          "p50": 429561.85175793525,
+          "p75": 808117.4561309528,
+          "p90": 1260193.163361904,
+          "p95": 1637665.8612696382,
+          "p99": 2639412.0089360173
+        }
+      },
+      "city_errors": {
+        "Bangalore": {
+          "count": 484,
+          "mae": 553353.0,
+          "rmse": 786400.0,
+          "r2": 0.9775
+        },
+        "Hyderabad": {
+          "count": 437,
+          "mae": 480687.0,
+          "rmse": 654921.0,
+          "r2": 0.9715
+        },
+        "Mumbai": {
+          "count": 601,
+          "mae": 856352.0,
+          "rmse": 1102625.0,
+          "r2": 0.9822
+        },
+        "Nagpur": {
+          "count": 347,
+          "mae": 364446.0,
+          "rmse": 476576.0,
+          "r2": 0.9706
+        },
+        "Pune": {
+          "count": 531,
+          "mae": 544810.0,
+          "rmse": 706291.0,
+          "r2": 0.9753
+        }
+      }
+    }
+  },
+  "feature_importances": {
+    "random_forest": [
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 0.5335,
+        "percentage": 53.35
+      },
+      {
+        "feature": "City",
+        "importance": 0.3573,
+        "percentage": 35.73
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 0.0905,
+        "percentage": 9.05
+      },
+      {
+        "feature": "BHK",
+        "importance": 0.0047,
+        "percentage": 0.47
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 0.0031,
+        "percentage": 0.31
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 0.0023,
+        "percentage": 0.23
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 0.0015,
+        "percentage": 0.15
+      },
+      {
+        "feature": "Nearby_Hospital_km",
+        "importance": 0.0011,
+        "percentage": 0.11
+      },
+      {
+        "feature": "Property_Age_years",
+        "importance": 0.001,
+        "percentage": 0.1
+      },
+      {
+        "feature": "Total_Floors",
+        "importance": 0.001,
+        "percentage": 0.1
+      },
+      {
+        "feature": "Nearby_School_km",
+        "importance": 0.0009,
+        "percentage": 0.09
+      },
+      {
+        "feature": "Floor_No",
+        "importance": 0.0009,
+        "percentage": 0.09
+      }
+    ],
+    "linear_regression": [
+      {
+        "feature": "City",
+        "importance": 13759184.05,
+        "percentage": 54.5
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 5335409.99,
+        "percentage": 21.14
+      },
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 4140016.91,
+        "percentage": 16.4
+      },
+      {
+        "feature": "Furnishing",
+        "importance": 424141.9,
+        "percentage": 1.68
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 367874.62,
+        "percentage": 1.46
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 232366.2,
+        "percentage": 0.92
+      },
+      {
+        "feature": "Bathrooms",
+        "importance": 190662.56,
+        "percentage": 0.76
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 173745.05,
+        "percentage": 0.69
+      },
+      {
+        "feature": "BHK",
+        "importance": 111844.49,
+        "percentage": 0.44
+      },
+      {
+        "feature": "Property_Age_years",
+        "importance": 107469.68,
+        "percentage": 0.43
+      },
+      {
+        "feature": "Parking",
+        "importance": 100150.43,
+        "percentage": 0.4
+      },
+      {
+        "feature": "Gated_Society",
+        "importance": 80002.52,
+        "percentage": 0.32
+      }
+    ],
+    "knn": [
+      {
+        "feature": "City",
+        "importance": 0.3865,
+        "percentage": 67.52
+      },
+      {
+        "feature": "Super_Area_sqft",
+        "importance": 0.0463,
+        "percentage": 8.09
+      },
+      {
+        "feature": "Locality_Tier",
+        "importance": 0.0355,
+        "percentage": 6.2
+      },
+      {
+        "feature": "Carpet_Area_sqft",
+        "importance": 0.0337,
+        "percentage": 5.89
+      },
+      {
+        "feature": "BHK",
+        "importance": 0.0333,
+        "percentage": 5.81
+      },
+      {
+        "feature": "Total_Floors",
+        "importance": 0.011,
+        "percentage": 1.93
+      },
+      {
+        "feature": "Crime_Rate_Index",
+        "importance": 0.0099,
+        "percentage": 1.74
+      },
+      {
+        "feature": "Distance_to_Metro_km",
+        "importance": 0.009,
+        "percentage": 1.57
+      },
+      {
+        "feature": "Lift",
+        "importance": 0.0032,
+        "percentage": 0.57
+      },
+      {
+        "feature": "Distance_to_CityCenter_km",
+        "importance": 0.0022,
+        "percentage": 0.39
+      },
+      {
+        "feature": "Nearby_Hospital_km",
+        "importance": 0.0009,
+        "percentage": 0.17
+      },
+      {
+        "feature": "Parking",
+        "importance": 0.0008,
+        "percentage": 0.15
+      }
+    ]
+  },
+  "scatter_samples": [
+    {
+      "id": 1,
+      "actual": 4974421.0,
+      "actual_lakhs": 49.74,
+      "linear_regression": 3977968.080160398,
+      "linear_regression_lakhs": 39.78,
+      "knn": 5338395.109362501,
+      "knn_lakhs": 53.38,
+      "random_forest": 4624313.000305557,
+      "random_forest_lakhs": 46.24
+    },
+    {
+      "id": 2,
+      "actual": 3159393.0,
+      "actual_lakhs": 31.59,
+      "linear_regression": 1859616.4550430393,
+      "linear_regression_lakhs": 18.6,
+      "knn": 4215688.535993858,
+      "knn_lakhs": 42.16,
+      "random_forest": 3753412.368880952,
+      "random_forest_lakhs": 37.53
+    },
+    {
+      "id": 3,
+      "actual": 10711213.0,
+      "actual_lakhs": 107.11,
+      "linear_regression": 11010721.373585235,
+      "linear_regression_lakhs": 110.11,
+      "knn": 10625575.16747545,
+      "knn_lakhs": 106.26,
+      "random_forest": 10579415.70679762,
+      "random_forest_lakhs": 105.79
+    },
+    {
+      "id": 4,
+      "actual": 7521649.0,
+      "actual_lakhs": 75.22,
+      "linear_regression": 8062158.487540805,
+      "linear_regression_lakhs": 80.62,
+      "knn": 7845269.785827567,
+      "knn_lakhs": 78.45,
+      "random_forest": 8150528.169821427,
+      "random_forest_lakhs": 81.51
+    },
+    {
+      "id": 5,
+      "actual": 6662647.0,
+      "actual_lakhs": 66.63,
+      "linear_regression": 6500514.201083437,
+      "linear_regression_lakhs": 65.01,
+      "knn": 5821240.2776040435,
+      "knn_lakhs": 58.21,
+      "random_forest": 6112462.926904759,
+      "random_forest_lakhs": 61.12
+    },
+    {
+      "id": 6,
+      "actual": 8192654.0,
+      "actual_lakhs": 81.93,
+      "linear_regression": 8664605.059631735,
+      "linear_regression_lakhs": 86.65,
+      "knn": 9687001.742193058,
+      "knn_lakhs": 96.87,
+      "random_forest": 8067836.378107144,
+      "random_forest_lakhs": 80.68
+    },
+    {
+      "id": 7,
+      "actual": 34584789.0,
+      "actual_lakhs": 345.85,
+      "linear_regression": 27819926.173455093,
+      "linear_regression_lakhs": 278.2,
+      "knn": 32044729.84898462,
+      "knn_lakhs": 320.45,
+      "random_forest": 34426963.028992064,
+      "random_forest_lakhs": 344.27
+    },
+    {
+      "id": 8,
+      "actual": 7835631.0,
+      "actual_lakhs": 78.36,
+      "linear_regression": 9850560.032473253,
+      "linear_regression_lakhs": 98.51,
+      "knn": 10339386.140687877,
+      "knn_lakhs": 103.39,
+      "random_forest": 7766904.1295476165,
+      "random_forest_lakhs": 77.67
+    },
+    {
+      "id": 9,
+      "actual": 3831154.0,
+      "actual_lakhs": 38.31,
+      "linear_regression": 3513733.4239010783,
+      "linear_regression_lakhs": 35.14,
+      "knn": 4556371.897569403,
+      "knn_lakhs": 45.56,
+      "random_forest": 3564276.24102381,
+      "random_forest_lakhs": 35.64
+    },
+    {
+      "id": 10,
+      "actual": 1817090.0,
+      "actual_lakhs": 18.17,
+      "linear_regression": -1616302.6121135475,
+      "linear_regression_lakhs": -16.16,
+      "knn": 2397970.7985320077,
+      "knn_lakhs": 23.98,
+      "random_forest": 1634292.0142023806,
+      "random_forest_lakhs": 16.34
+    },
+    {
+      "id": 11,
+      "actual": 2936790.0,
+      "actual_lakhs": 29.37,
+      "linear_regression": 2248725.5757383406,
+      "linear_regression_lakhs": 22.49,
+      "knn": 4174524.8728078925,
+      "knn_lakhs": 41.75,
+      "random_forest": 3200419.1199047626,
+      "random_forest_lakhs": 32.0
+    },
+    {
+      "id": 12,
+      "actual": 2365021.0,
+      "actual_lakhs": 23.65,
+      "linear_regression": 65903.209576305,
+      "linear_regression_lakhs": 0.66,
+      "knn": 4975203.766905888,
+      "knn_lakhs": 49.75,
+      "random_forest": 2865784.161214286,
+      "random_forest_lakhs": 28.66
+    },
+    {
+      "id": 13,
+      "actual": 12256881.0,
+      "actual_lakhs": 122.57,
+      "linear_regression": 13169088.673752267,
+      "linear_regression_lakhs": 131.69,
+      "knn": 12079285.549582602,
+      "knn_lakhs": 120.79,
+      "random_forest": 11559758.209166672,
+      "random_forest_lakhs": 115.6
+    },
+    {
+      "id": 14,
+      "actual": 5477552.0,
+      "actual_lakhs": 54.78,
+      "linear_regression": 6096644.541790515,
+      "linear_regression_lakhs": 60.97,
+      "knn": 6339345.946813085,
+      "knn_lakhs": 63.39,
+      "random_forest": 5041438.935460318,
+      "random_forest_lakhs": 50.41
+    },
+    {
+      "id": 15,
+      "actual": 17093346.0,
+      "actual_lakhs": 170.93,
+      "linear_regression": 19557838.7940283,
+      "linear_regression_lakhs": 195.58,
+      "knn": 15182974.88523491,
+      "knn_lakhs": 151.83,
+      "random_forest": 18537790.964190476,
+      "random_forest_lakhs": 185.38
+    },
+    {
+      "id": 16,
+      "actual": 8877885.0,
+      "actual_lakhs": 88.78,
+      "linear_regression": 7955301.036342332,
+      "linear_regression_lakhs": 79.55,
+      "knn": 9355893.57337786,
+      "knn_lakhs": 93.56,
+      "random_forest": 8446930.799797619,
+      "random_forest_lakhs": 84.47
+    },
+    {
+      "id": 17,
+      "actual": 5745746.0,
+      "actual_lakhs": 57.46,
+      "linear_regression": 4906612.697407977,
+      "linear_regression_lakhs": 49.07,
+      "knn": 6469520.851829067,
+      "knn_lakhs": 64.7,
+      "random_forest": 4715344.546107142,
+      "random_forest_lakhs": 47.15
+    },
+    {
+      "id": 18,
+      "actual": 6322831.0,
+      "actual_lakhs": 63.23,
+      "linear_regression": 4840731.2773097055,
+      "linear_regression_lakhs": 48.41,
+      "knn": 6851013.869946465,
+      "knn_lakhs": 68.51,
+      "random_forest": 5265192.234575396,
+      "random_forest_lakhs": 52.65
+    },
+    {
+      "id": 19,
+      "actual": 6077379.0,
+      "actual_lakhs": 60.77,
+      "linear_regression": 5270701.03813972,
+      "linear_regression_lakhs": 52.71,
+      "knn": 6748321.537372951,
+      "knn_lakhs": 67.48,
+      "random_forest": 5624546.553880952,
+      "random_forest_lakhs": 56.25
+    },
+    {
+      "id": 20,
+      "actual": 3683226.0,
+      "actual_lakhs": 36.83,
+      "linear_regression": 2299513.0915198876,
+      "linear_regression_lakhs": 23.0,
+      "knn": 3372139.0311881895,
+      "knn_lakhs": 33.72,
+      "random_forest": 3812567.4394880957,
+      "random_forest_lakhs": 38.13
+    },
+    {
+      "id": 21,
+      "actual": 8084569.0,
+      "actual_lakhs": 80.85,
+      "linear_regression": 8134197.067230482,
+      "linear_regression_lakhs": 81.34,
+      "knn": 7842579.186224422,
+      "knn_lakhs": 78.43,
+      "random_forest": 7689553.840976191,
+      "random_forest_lakhs": 76.9
+    },
+    {
+      "id": 22,
+      "actual": 3946254.0,
+      "actual_lakhs": 39.46,
+      "linear_regression": 1762489.2902822625,
+      "linear_regression_lakhs": 17.62,
+      "knn": 4486721.217095627,
+      "knn_lakhs": 44.87,
+      "random_forest": 3499788.303230158,
+      "random_forest_lakhs": 35.0
+    },
+    {
+      "id": 23,
+      "actual": 8512550.0,
+      "actual_lakhs": 85.13,
+      "linear_regression": 8459856.538383204,
+      "linear_regression_lakhs": 84.6,
+      "knn": 8981482.866993055,
+      "knn_lakhs": 89.81,
+      "random_forest": 7946030.992694446,
+      "random_forest_lakhs": 79.46
+    },
+    {
+      "id": 24,
+      "actual": 4916171.0,
+      "actual_lakhs": 49.16,
+      "linear_regression": 3990689.887304005,
+      "linear_regression_lakhs": 39.91,
+      "knn": 4324000.177352438,
+      "knn_lakhs": 43.24,
+      "random_forest": 4518872.973920635,
+      "random_forest_lakhs": 45.19
+    },
+    {
+      "id": 25,
+      "actual": 13311811.0,
+      "actual_lakhs": 133.12,
+      "linear_regression": 13536863.431984533,
+      "linear_regression_lakhs": 135.37,
+      "knn": 12248382.061229942,
+      "knn_lakhs": 122.48,
+      "random_forest": 12765953.496904764,
+      "random_forest_lakhs": 127.66
+    },
+    {
+      "id": 26,
+      "actual": 4509340.0,
+      "actual_lakhs": 45.09,
+      "linear_regression": 3715795.588274882,
+      "linear_regression_lakhs": 37.16,
+      "knn": 5609591.601569574,
+      "knn_lakhs": 56.1,
+      "random_forest": 3788511.217452381,
+      "random_forest_lakhs": 37.89
+    },
+    {
+      "id": 27,
+      "actual": 5554558.0,
+      "actual_lakhs": 55.55,
+      "linear_regression": 8339158.103711308,
+      "linear_regression_lakhs": 83.39,
+      "knn": 5513859.240495944,
+      "knn_lakhs": 55.14,
+      "random_forest": 5335460.436563493,
+      "random_forest_lakhs": 53.35
+    },
+    {
+      "id": 28,
+      "actual": 14408264.0,
+      "actual_lakhs": 144.08,
+      "linear_regression": 21859595.573330726,
+      "linear_regression_lakhs": 218.6,
+      "knn": 21554126.977023114,
+      "knn_lakhs": 215.54,
+      "random_forest": 15819675.02398412,
+      "random_forest_lakhs": 158.2
+    },
+    {
+      "id": 29,
+      "actual": 19725483.0,
+      "actual_lakhs": 197.25,
+      "linear_regression": 19751036.79349372,
+      "linear_regression_lakhs": 197.51,
+      "knn": 19572709.38151282,
+      "knn_lakhs": 195.73,
+      "random_forest": 19997601.90940476,
+      "random_forest_lakhs": 199.98
+    },
+    {
+      "id": 30,
+      "actual": 4678222.0,
+      "actual_lakhs": 46.78,
+      "linear_regression": 3378717.558216514,
+      "linear_regression_lakhs": 33.79,
+      "knn": 4024410.726630781,
+      "knn_lakhs": 40.24,
+      "random_forest": 4312354.078654762,
+      "random_forest_lakhs": 43.12
+    },
+    {
+      "id": 31,
+      "actual": 7435272.0,
+      "actual_lakhs": 74.35,
+      "linear_regression": 7014019.450998729,
+      "linear_regression_lakhs": 70.14,
+      "knn": 8212565.135811244,
+      "knn_lakhs": 82.13,
+      "random_forest": 7569136.092833332,
+      "random_forest_lakhs": 75.69
+    },
+    {
+      "id": 32,
+      "actual": 2361319.0,
+      "actual_lakhs": 23.61,
+      "linear_regression": 666577.0638315575,
+      "linear_regression_lakhs": 6.67,
+      "knn": 2877516.9723511674,
+      "knn_lakhs": 28.78,
+      "random_forest": 3096813.4273968246,
+      "random_forest_lakhs": 30.97
+    },
+    {
+      "id": 33,
+      "actual": 3335173.0,
+      "actual_lakhs": 33.35,
+      "linear_regression": 3084200.5932547813,
+      "linear_regression_lakhs": 30.84,
+      "knn": 3033890.643384545,
+      "knn_lakhs": 30.34,
+      "random_forest": 3375182.5505595244,
+      "random_forest_lakhs": 33.75
+    },
+    {
+      "id": 34,
+      "actual": 6206648.0,
+      "actual_lakhs": 62.07,
+      "linear_regression": 6287124.082051238,
+      "linear_regression_lakhs": 62.87,
+      "knn": 7041896.951828152,
+      "knn_lakhs": 70.42,
+      "random_forest": 6762700.643412701,
+      "random_forest_lakhs": 67.63
+    },
+    {
+      "id": 35,
+      "actual": 7914039.0,
+      "actual_lakhs": 79.14,
+      "linear_regression": 7172533.69230026,
+      "linear_regression_lakhs": 71.73,
+      "knn": 7754630.477968272,
+      "knn_lakhs": 77.55,
+      "random_forest": 7680707.473785714,
+      "random_forest_lakhs": 76.81
+    },
+    {
+      "id": 36,
+      "actual": 13728616.0,
+      "actual_lakhs": 137.29,
+      "linear_regression": 14816413.880742267,
+      "linear_regression_lakhs": 148.16,
+      "knn": 9140361.939998928,
+      "knn_lakhs": 91.4,
+      "random_forest": 12871233.64128571,
+      "random_forest_lakhs": 128.71
+    },
+    {
+      "id": 37,
+      "actual": 1781162.0,
+      "actual_lakhs": 17.81,
+      "linear_regression": -984326.6378383925,
+      "linear_regression_lakhs": -9.84,
+      "knn": 3234814.058772908,
+      "knn_lakhs": 32.35,
+      "random_forest": 2052951.9864523807,
+      "random_forest_lakhs": 20.53
+    },
+    {
+      "id": 38,
+      "actual": 2533831.0,
+      "actual_lakhs": 25.34,
+      "linear_regression": 1037791.0366495596,
+      "linear_regression_lakhs": 10.38,
+      "knn": 3304517.1780157103,
+      "knn_lakhs": 33.05,
+      "random_forest": 3093434.0421785708,
+      "random_forest_lakhs": 30.93
+    },
+    {
+      "id": 39,
+      "actual": 6941708.0,
+      "actual_lakhs": 69.42,
+      "linear_regression": 6529755.296961723,
+      "linear_regression_lakhs": 65.3,
+      "knn": 8144835.364097604,
+      "knn_lakhs": 81.45,
+      "random_forest": 6962126.778480161,
+      "random_forest_lakhs": 69.62
+    },
+    {
+      "id": 40,
+      "actual": 4928283.0,
+      "actual_lakhs": 49.28,
+      "linear_regression": 5598185.667597826,
+      "linear_regression_lakhs": 55.98,
+      "knn": 5118770.762832667,
+      "knn_lakhs": 51.19,
+      "random_forest": 5632798.283571428,
+      "random_forest_lakhs": 56.33
+    },
+    {
+      "id": 41,
+      "actual": 8332669.0,
+      "actual_lakhs": 83.33,
+      "linear_regression": 7471543.335081502,
+      "linear_regression_lakhs": 74.72,
+      "knn": 8482341.255146671,
+      "knn_lakhs": 84.82,
+      "random_forest": 7159007.704261904,
+      "random_forest_lakhs": 71.59
+    },
+    {
+      "id": 42,
+      "actual": 8286601.0,
+      "actual_lakhs": 82.87,
+      "linear_regression": 9078518.759394472,
+      "linear_regression_lakhs": 90.79,
+      "knn": 8757890.71497576,
+      "knn_lakhs": 87.58,
+      "random_forest": 8644933.397404762,
+      "random_forest_lakhs": 86.45
+    },
+    {
+      "id": 43,
+      "actual": 6526314.0,
+      "actual_lakhs": 65.26,
+      "linear_regression": 9460794.084381428,
+      "linear_regression_lakhs": 94.61,
+      "knn": 5849323.453139603,
+      "knn_lakhs": 58.49,
+      "random_forest": 6753992.861380953,
+      "random_forest_lakhs": 67.54
+    },
+    {
+      "id": 44,
+      "actual": 17192057.0,
+      "actual_lakhs": 171.92,
+      "linear_regression": 15979072.984447062,
+      "linear_regression_lakhs": 159.79,
+      "knn": 13398647.879552767,
+      "knn_lakhs": 133.99,
+      "random_forest": 16058784.285119046,
+      "random_forest_lakhs": 160.59
+    },
+    {
+      "id": 45,
+      "actual": 3146519.0,
+      "actual_lakhs": 31.47,
+      "linear_regression": 1170867.2127213683,
+      "linear_regression_lakhs": 11.71,
+      "knn": 3401672.701161477,
+      "knn_lakhs": 34.02,
+      "random_forest": 2634364.332623016,
+      "random_forest_lakhs": 26.34
+    },
+    {
+      "id": 46,
+      "actual": 11853348.0,
+      "actual_lakhs": 118.53,
+      "linear_regression": 11941563.955569433,
+      "linear_regression_lakhs": 119.42,
+      "knn": 13382244.653258752,
+      "knn_lakhs": 133.82,
+      "random_forest": 10399099.082603177,
+      "random_forest_lakhs": 103.99
+    },
+    {
+      "id": 47,
+      "actual": 3096100.0,
+      "actual_lakhs": 30.96,
+      "linear_regression": 660745.569416766,
+      "linear_regression_lakhs": 6.61,
+      "knn": 3248927.801964661,
+      "knn_lakhs": 32.49,
+      "random_forest": 2423666.2945833337,
+      "random_forest_lakhs": 24.24
+    },
+    {
+      "id": 48,
+      "actual": 6809261.0,
+      "actual_lakhs": 68.09,
+      "linear_regression": 7939014.455147765,
+      "linear_regression_lakhs": 79.39,
+      "knn": 7588711.644076091,
+      "knn_lakhs": 75.89,
+      "random_forest": 6858653.741107145,
+      "random_forest_lakhs": 68.59
+    },
+    {
+      "id": 49,
+      "actual": 9637228.0,
+      "actual_lakhs": 96.37,
+      "linear_regression": 12408856.95305955,
+      "linear_regression_lakhs": 124.09,
+      "knn": 10352953.536477972,
+      "knn_lakhs": 103.53,
+      "random_forest": 10346837.207801586,
+      "random_forest_lakhs": 103.47
+    },
+    {
+      "id": 50,
+      "actual": 11034046.0,
+      "actual_lakhs": 110.34,
+      "linear_regression": 14245962.22944362,
+      "linear_regression_lakhs": 142.46,
+      "knn": 9892498.26539805,
+      "knn_lakhs": 98.92,
+      "random_forest": 10170968.225523807,
+      "random_forest_lakhs": 101.71
+    },
+    {
+      "id": 51,
+      "actual": 27299966.0,
+      "actual_lakhs": 273.0,
+      "linear_regression": 24738426.25081171,
+      "linear_regression_lakhs": 247.38,
+      "knn": 23468699.90564136,
+      "knn_lakhs": 234.69,
+      "random_forest": 30900044.337880954,
+      "random_forest_lakhs": 309.0
+    },
+    {
+      "id": 52,
+      "actual": 6034694.0,
+      "actual_lakhs": 60.35,
+      "linear_regression": 5224643.536589079,
+      "linear_regression_lakhs": 52.25,
+      "knn": 7085184.945385458,
+      "knn_lakhs": 70.85,
+      "random_forest": 6101792.76397619,
+      "random_forest_lakhs": 61.02
+    },
+    {
+      "id": 53,
+      "actual": 13918411.0,
+      "actual_lakhs": 139.18,
+      "linear_regression": 15630352.847016819,
+      "linear_regression_lakhs": 156.3,
+      "knn": 18605900.56245832,
+      "knn_lakhs": 186.06,
+      "random_forest": 14490004.327023812,
+      "random_forest_lakhs": 144.9
+    },
+    {
+      "id": 54,
+      "actual": 26623827.0,
+      "actual_lakhs": 266.24,
+      "linear_regression": 22171806.43810591,
+      "linear_regression_lakhs": 221.72,
+      "knn": 25321056.595979925,
+      "knn_lakhs": 253.21,
+      "random_forest": 25534677.34047619,
+      "random_forest_lakhs": 255.35
+    },
+    {
+      "id": 55,
+      "actual": 21441000.0,
+      "actual_lakhs": 214.41,
+      "linear_regression": 20049197.941576876,
+      "linear_regression_lakhs": 200.49,
+      "knn": 19445662.140298266,
+      "knn_lakhs": 194.46,
+      "random_forest": 22608989.382334776,
+      "random_forest_lakhs": 226.09
+    },
+    {
+      "id": 56,
+      "actual": 18977778.0,
+      "actual_lakhs": 189.78,
+      "linear_regression": 17763779.354899336,
+      "linear_regression_lakhs": 177.64,
+      "knn": 17034381.198663708,
+      "knn_lakhs": 170.34,
+      "random_forest": 17109698.98746825,
+      "random_forest_lakhs": 171.1
+    },
+    {
+      "id": 57,
+      "actual": 16188720.0,
+      "actual_lakhs": 161.89,
+      "linear_regression": 16632256.372033719,
+      "linear_regression_lakhs": 166.32,
+      "knn": 15584125.049684433,
+      "knn_lakhs": 155.84,
+      "random_forest": 16646413.602666667,
+      "random_forest_lakhs": 166.46
+    },
+    {
+      "id": 58,
+      "actual": 2458992.0,
+      "actual_lakhs": 24.59,
+      "linear_regression": 1300504.0207464825,
+      "linear_regression_lakhs": 13.01,
+      "knn": 2864525.5343816485,
+      "knn_lakhs": 28.65,
+      "random_forest": 2915110.872904761,
+      "random_forest_lakhs": 29.15
+    },
+    {
+      "id": 59,
+      "actual": 2922554.0,
+      "actual_lakhs": 29.23,
+      "linear_regression": 1108360.7939825254,
+      "linear_regression_lakhs": 11.08,
+      "knn": 3117249.998900174,
+      "knn_lakhs": 31.17,
+      "random_forest": 2684393.451896826,
+      "random_forest_lakhs": 26.84
+    },
+    {
+      "id": 60,
+      "actual": 8911485.0,
+      "actual_lakhs": 89.11,
+      "linear_regression": 9549817.788412336,
+      "linear_regression_lakhs": 95.5,
+      "knn": 11864032.751407545,
+      "knn_lakhs": 118.64,
+      "random_forest": 8893752.17051984,
+      "random_forest_lakhs": 88.94
+    },
+    {
+      "id": 61,
+      "actual": 11090013.0,
+      "actual_lakhs": 110.9,
+      "linear_regression": 13921958.640070312,
+      "linear_regression_lakhs": 139.22,
+      "knn": 9076560.991377076,
+      "knn_lakhs": 90.77,
+      "random_forest": 12318033.780214284,
+      "random_forest_lakhs": 123.18
+    },
+    {
+      "id": 62,
+      "actual": 10818425.0,
+      "actual_lakhs": 108.18,
+      "linear_regression": 14660338.251234323,
+      "linear_regression_lakhs": 146.6,
+      "knn": 9699398.872217767,
+      "knn_lakhs": 96.99,
+      "random_forest": 11789912.2396746,
+      "random_forest_lakhs": 117.9
+    },
+    {
+      "id": 63,
+      "actual": 2884175.0,
+      "actual_lakhs": 28.84,
+      "linear_regression": 2069489.6813871656,
+      "linear_regression_lakhs": 20.69,
+      "knn": 3109060.8725218982,
+      "knn_lakhs": 31.09,
+      "random_forest": 3000378.3177857143,
+      "random_forest_lakhs": 30.0
+    },
+    {
+      "id": 64,
+      "actual": 3233554.0,
+      "actual_lakhs": 32.34,
+      "linear_regression": 2584252.426665622,
+      "linear_regression_lakhs": 25.84,
+      "knn": 5101750.1133391075,
+      "knn_lakhs": 51.02,
+      "random_forest": 3687213.0612857146,
+      "random_forest_lakhs": 36.87
+    },
+    {
+      "id": 65,
+      "actual": 3605564.0,
+      "actual_lakhs": 36.06,
+      "linear_regression": 2454014.1175882574,
+      "linear_regression_lakhs": 24.54,
+      "knn": 4425065.1612655,
+      "knn_lakhs": 44.25,
+      "random_forest": 4205423.296218252,
+      "random_forest_lakhs": 42.05
+    },
+    {
+      "id": 66,
+      "actual": 9271388.0,
+      "actual_lakhs": 92.71,
+      "linear_regression": 9600384.809399478,
+      "linear_regression_lakhs": 96.0,
+      "knn": 10342776.907736296,
+      "knn_lakhs": 103.43,
+      "random_forest": 9444266.091821427,
+      "random_forest_lakhs": 94.44
+    },
+    {
+      "id": 67,
+      "actual": 3319557.0,
+      "actual_lakhs": 33.2,
+      "linear_regression": 2721707.5623203013,
+      "linear_regression_lakhs": 27.22,
+      "knn": 4072756.287164349,
+      "knn_lakhs": 40.73,
+      "random_forest": 3065771.2026666664,
+      "random_forest_lakhs": 30.66
+    },
+    {
+      "id": 68,
+      "actual": 21295638.0,
+      "actual_lakhs": 212.96,
+      "linear_regression": 20593874.968306407,
+      "linear_regression_lakhs": 205.94,
+      "knn": 19197390.128519807,
+      "knn_lakhs": 191.97,
+      "random_forest": 20512342.179333333,
+      "random_forest_lakhs": 205.12
+    },
+    {
+      "id": 69,
+      "actual": 6917166.0,
+      "actual_lakhs": 69.17,
+      "linear_regression": 10024631.147497337,
+      "linear_regression_lakhs": 100.25,
+      "knn": 6110849.661148776,
+      "knn_lakhs": 61.11,
+      "random_forest": 6819571.934809523,
+      "random_forest_lakhs": 68.2
+    },
+    {
+      "id": 70,
+      "actual": 12409837.0,
+      "actual_lakhs": 124.1,
+      "linear_regression": 13027296.886500133,
+      "linear_regression_lakhs": 130.27,
+      "knn": 14154928.356887441,
+      "knn_lakhs": 141.55,
+      "random_forest": 12581994.306750005,
+      "random_forest_lakhs": 125.82
+    },
+    {
+      "id": 71,
+      "actual": 6860436.0,
+      "actual_lakhs": 68.6,
+      "linear_regression": 6059326.380605349,
+      "linear_regression_lakhs": 60.59,
+      "knn": 6738053.639284272,
+      "knn_lakhs": 67.38,
+      "random_forest": 6535385.080380951,
+      "random_forest_lakhs": 65.35
+    },
+    {
+      "id": 72,
+      "actual": 1518175.0,
+      "actual_lakhs": 15.18,
+      "linear_regression": -2751108.0408784794,
+      "linear_regression_lakhs": -27.51,
+      "knn": 1851599.4233822348,
+      "knn_lakhs": 18.52,
+      "random_forest": 1539048.2619603178,
+      "random_forest_lakhs": 15.39
+    },
+    {
+      "id": 73,
+      "actual": 8025730.0,
+      "actual_lakhs": 80.26,
+      "linear_regression": 7744792.301447786,
+      "linear_regression_lakhs": 77.45,
+      "knn": 8337531.133463826,
+      "knn_lakhs": 83.38,
+      "random_forest": 8217916.1442976175,
+      "random_forest_lakhs": 82.18
+    },
+    {
+      "id": 74,
+      "actual": 5093736.0,
+      "actual_lakhs": 50.94,
+      "linear_regression": 4741666.043303563,
+      "linear_regression_lakhs": 47.42,
+      "knn": 5499740.062901998,
+      "knn_lakhs": 55.0,
+      "random_forest": 5151851.178230159,
+      "random_forest_lakhs": 51.52
+    },
+    {
+      "id": 75,
+      "actual": 11234350.0,
+      "actual_lakhs": 112.34,
+      "linear_regression": 11495772.877917208,
+      "linear_regression_lakhs": 114.96,
+      "knn": 11202368.774645021,
+      "knn_lakhs": 112.02,
+      "random_forest": 10197255.459202385,
+      "random_forest_lakhs": 101.97
+    },
+    {
+      "id": 76,
+      "actual": 7505222.0,
+      "actual_lakhs": 75.05,
+      "linear_regression": 7166880.314767667,
+      "linear_regression_lakhs": 71.67,
+      "knn": 7590903.232101888,
+      "knn_lakhs": 75.91,
+      "random_forest": 7462907.300773811,
+      "random_forest_lakhs": 74.63
+    },
+    {
+      "id": 77,
+      "actual": 8284011.0,
+      "actual_lakhs": 82.84,
+      "linear_regression": 7947960.200459767,
+      "linear_regression_lakhs": 79.48,
+      "knn": 9824251.97718768,
+      "knn_lakhs": 98.24,
+      "random_forest": 6989823.259873017,
+      "random_forest_lakhs": 69.9
+    },
+    {
+      "id": 78,
+      "actual": 7904973.0,
+      "actual_lakhs": 79.05,
+      "linear_regression": 7286055.286414884,
+      "linear_regression_lakhs": 72.86,
+      "knn": 8343339.982275251,
+      "knn_lakhs": 83.43,
+      "random_forest": 7268134.831392858,
+      "random_forest_lakhs": 72.68
+    },
+    {
+      "id": 79,
+      "actual": 9918788.0,
+      "actual_lakhs": 99.19,
+      "linear_regression": 13677498.590635072,
+      "linear_regression_lakhs": 136.77,
+      "knn": 9808108.714126661,
+      "knn_lakhs": 98.08,
+      "random_forest": 10007579.443095235,
+      "random_forest_lakhs": 100.08
+    },
+    {
+      "id": 80,
+      "actual": 2935935.0,
+      "actual_lakhs": 29.36,
+      "linear_regression": 2547025.2908075843,
+      "linear_regression_lakhs": 25.47,
+      "knn": 3706549.8563735187,
+      "knn_lakhs": 37.07,
+      "random_forest": 3051418.3848293656,
+      "random_forest_lakhs": 30.51
+    },
+    {
+      "id": 81,
+      "actual": 8957928.0,
+      "actual_lakhs": 89.58,
+      "linear_regression": 8356729.5737935845,
+      "linear_regression_lakhs": 83.57,
+      "knn": 9900847.847869681,
+      "knn_lakhs": 99.01,
+      "random_forest": 8241841.401333335,
+      "random_forest_lakhs": 82.42
+    },
+    {
+      "id": 82,
+      "actual": 9973259.0,
+      "actual_lakhs": 99.73,
+      "linear_regression": 13873967.17592585,
+      "linear_regression_lakhs": 138.74,
+      "knn": 7268843.039392868,
+      "knn_lakhs": 72.69,
+      "random_forest": 10567511.213865079,
+      "random_forest_lakhs": 105.68
+    },
+    {
+      "id": 83,
+      "actual": 6646226.0,
+      "actual_lakhs": 66.46,
+      "linear_regression": 5984721.033108305,
+      "linear_regression_lakhs": 59.85,
+      "knn": 6401359.521890031,
+      "knn_lakhs": 64.01,
+      "random_forest": 6943465.416642856,
+      "random_forest_lakhs": 69.43
+    },
+    {
+      "id": 84,
+      "actual": 15028716.0,
+      "actual_lakhs": 150.29,
+      "linear_regression": 14413938.337815521,
+      "linear_regression_lakhs": 144.14,
+      "knn": 8911009.94120599,
+      "knn_lakhs": 89.11,
+      "random_forest": 14312738.283547621,
+      "random_forest_lakhs": 143.13
+    },
+    {
+      "id": 85,
+      "actual": 9541086.0,
+      "actual_lakhs": 95.41,
+      "linear_regression": 8822644.742235847,
+      "linear_regression_lakhs": 88.23,
+      "knn": 9227720.30419091,
+      "knn_lakhs": 92.28,
+      "random_forest": 8674749.677207071,
+      "random_forest_lakhs": 86.75
+    },
+    {
+      "id": 86,
+      "actual": 12687015.0,
+      "actual_lakhs": 126.87,
+      "linear_regression": 14921621.25296982,
+      "linear_regression_lakhs": 149.22,
+      "knn": 11765706.061380591,
+      "knn_lakhs": 117.66,
+      "random_forest": 13401747.0137619,
+      "random_forest_lakhs": 134.02
+    },
+    {
+      "id": 87,
+      "actual": 13619036.0,
+      "actual_lakhs": 136.19,
+      "linear_regression": 12732328.167407295,
+      "linear_regression_lakhs": 127.32,
+      "knn": 14895729.020637743,
+      "knn_lakhs": 148.96,
+      "random_forest": 12264805.027753972,
+      "random_forest_lakhs": 122.65
+    },
+    {
+      "id": 88,
+      "actual": 7694705.0,
+      "actual_lakhs": 76.95,
+      "linear_regression": 7753153.51328642,
+      "linear_regression_lakhs": 77.53,
+      "knn": 8523407.489385134,
+      "knn_lakhs": 85.23,
+      "random_forest": 7852251.420894662,
+      "random_forest_lakhs": 78.52
+    },
+    {
+      "id": 89,
+      "actual": 2105418.0,
+      "actual_lakhs": 21.05,
+      "linear_regression": 598131.2909061387,
+      "linear_regression_lakhs": 5.98,
+      "knn": 2909024.641228217,
+      "knn_lakhs": 29.09,
+      "random_forest": 2204160.278202381,
+      "random_forest_lakhs": 22.04
+    },
+    {
+      "id": 90,
+      "actual": 4434210.0,
+      "actual_lakhs": 44.34,
+      "linear_regression": 4223670.2579065915,
+      "linear_regression_lakhs": 42.24,
+      "knn": 5848706.06905997,
+      "knn_lakhs": 58.49,
+      "random_forest": 4533277.50127381,
+      "random_forest_lakhs": 45.33
+    },
+    {
+      "id": 91,
+      "actual": 13846170.0,
+      "actual_lakhs": 138.46,
+      "linear_regression": 15146276.58384927,
+      "linear_regression_lakhs": 151.46,
+      "knn": 19646918.54321145,
+      "knn_lakhs": 196.47,
+      "random_forest": 14150339.810011905,
+      "random_forest_lakhs": 141.5
+    },
+    {
+      "id": 92,
+      "actual": 12756052.0,
+      "actual_lakhs": 127.56,
+      "linear_regression": 14086830.301007856,
+      "linear_regression_lakhs": 140.87,
+      "knn": 15023334.164921982,
+      "knn_lakhs": 150.23,
+      "random_forest": 13752348.82977381,
+      "random_forest_lakhs": 137.52
+    },
+    {
+      "id": 93,
+      "actual": 9213877.0,
+      "actual_lakhs": 92.14,
+      "linear_regression": 9417322.67706406,
+      "linear_regression_lakhs": 94.17,
+      "knn": 11705959.45319374,
+      "knn_lakhs": 117.06,
+      "random_forest": 9488638.95754762,
+      "random_forest_lakhs": 94.89
+    },
+    {
+      "id": 94,
+      "actual": 2430878.0,
+      "actual_lakhs": 24.31,
+      "linear_regression": 1085192.3121651374,
+      "linear_regression_lakhs": 10.85,
+      "knn": 4222178.614657389,
+      "knn_lakhs": 42.22,
+      "random_forest": 1987893.8445476196,
+      "random_forest_lakhs": 19.88
+    },
+    {
+      "id": 95,
+      "actual": 9979737.0,
+      "actual_lakhs": 99.8,
+      "linear_regression": 13157820.466224417,
+      "linear_regression_lakhs": 131.58,
+      "knn": 9357599.223107561,
+      "knn_lakhs": 93.58,
+      "random_forest": 8643390.520023808,
+      "random_forest_lakhs": 86.43
+    },
+    {
+      "id": 96,
+      "actual": 7018059.0,
+      "actual_lakhs": 70.18,
+      "linear_regression": 6424572.79863909,
+      "linear_regression_lakhs": 64.25,
+      "knn": 7858768.99911218,
+      "knn_lakhs": 78.59,
+      "random_forest": 5883740.1418571435,
+      "random_forest_lakhs": 58.84
+    },
+    {
+      "id": 97,
+      "actual": 4591458.0,
+      "actual_lakhs": 45.91,
+      "linear_regression": 3662897.106063557,
+      "linear_regression_lakhs": 36.63,
+      "knn": 4824035.288687336,
+      "knn_lakhs": 48.24,
+      "random_forest": 4463200.382500001,
+      "random_forest_lakhs": 44.63
+    },
+    {
+      "id": 98,
+      "actual": 8286412.0,
+      "actual_lakhs": 82.86,
+      "linear_regression": 7940307.4895435395,
+      "linear_regression_lakhs": 79.4,
+      "knn": 10019175.518914105,
+      "knn_lakhs": 100.19,
+      "random_forest": 7423215.484751081,
+      "random_forest_lakhs": 74.23
+    },
+    {
+      "id": 99,
+      "actual": 5744288.0,
+      "actual_lakhs": 57.44,
+      "linear_regression": 5590815.553118624,
+      "linear_regression_lakhs": 55.91,
+      "knn": 6133587.071379472,
+      "knn_lakhs": 61.34,
+      "random_forest": 6138785.024369047,
+      "random_forest_lakhs": 61.39
+    },
+    {
+      "id": 100,
+      "actual": 8680169.0,
+      "actual_lakhs": 86.8,
+      "linear_regression": 9367906.719261957,
+      "linear_regression_lakhs": 93.68,
+      "knn": 8968506.75829446,
+      "knn_lakhs": 89.69,
+      "random_forest": 9456742.873833332,
+      "random_forest_lakhs": 94.57
+    },
+    {
+      "id": 101,
+      "actual": 9403491.0,
+      "actual_lakhs": 94.03,
+      "linear_regression": 9840554.178544473,
+      "linear_regression_lakhs": 98.41,
+      "knn": 11250707.013982678,
+      "knn_lakhs": 112.51,
+      "random_forest": 7845755.822670635,
+      "random_forest_lakhs": 78.46
+    },
+    {
+      "id": 102,
+      "actual": 8405703.0,
+      "actual_lakhs": 84.06,
+      "linear_regression": 7613079.557691719,
+      "linear_regression_lakhs": 76.13,
+      "knn": 8398693.510797417,
+      "knn_lakhs": 83.99,
+      "random_forest": 7481846.167238094,
+      "random_forest_lakhs": 74.82
+    },
+    {
+      "id": 103,
+      "actual": 22557380.0,
+      "actual_lakhs": 225.57,
+      "linear_regression": 24917705.969209734,
+      "linear_regression_lakhs": 249.18,
+      "knn": 26244067.503771793,
+      "knn_lakhs": 262.44,
+      "random_forest": 24618383.26678571,
+      "random_forest_lakhs": 246.18
+    },
+    {
+      "id": 104,
+      "actual": 6259520.0,
+      "actual_lakhs": 62.6,
+      "linear_regression": 6239404.010769966,
+      "linear_regression_lakhs": 62.39,
+      "knn": 7517761.683837046,
+      "knn_lakhs": 75.18,
+      "random_forest": 6889306.216070345,
+      "random_forest_lakhs": 68.89
+    },
+    {
+      "id": 105,
+      "actual": 15335851.0,
+      "actual_lakhs": 153.36,
+      "linear_regression": 16664986.15220832,
+      "linear_regression_lakhs": 166.65,
+      "knn": 17587543.556102026,
+      "knn_lakhs": 175.88,
+      "random_forest": 14149367.123916676,
+      "random_forest_lakhs": 141.49
+    },
+    {
+      "id": 106,
+      "actual": 14197838.0,
+      "actual_lakhs": 141.98,
+      "linear_regression": 16634347.484708019,
+      "linear_regression_lakhs": 166.34,
+      "knn": 14489241.467185626,
+      "knn_lakhs": 144.89,
+      "random_forest": 15127274.813309528,
+      "random_forest_lakhs": 151.27
+    },
+    {
+      "id": 107,
+      "actual": 4635044.0,
+      "actual_lakhs": 46.35,
+      "linear_regression": 3841823.888462019,
+      "linear_regression_lakhs": 38.42,
+      "knn": 5182311.586750976,
+      "knn_lakhs": 51.82,
+      "random_forest": 4797368.400833333,
+      "random_forest_lakhs": 47.97
+    },
+    {
+      "id": 108,
+      "actual": 15690991.0,
+      "actual_lakhs": 156.91,
+      "linear_regression": 17505547.411269993,
+      "linear_regression_lakhs": 175.06,
+      "knn": 11901915.8035119,
+      "knn_lakhs": 119.02,
+      "random_forest": 16799499.956904758,
+      "random_forest_lakhs": 167.99
+    },
+    {
+      "id": 109,
+      "actual": 1863280.0,
+      "actual_lakhs": 18.63,
+      "linear_regression": -860722.3291224716,
+      "linear_regression_lakhs": -8.61,
+      "knn": 2629335.086865466,
+      "knn_lakhs": 26.29,
+      "random_forest": 2014469.7036984127,
+      "random_forest_lakhs": 20.14
+    },
+    {
+      "id": 110,
+      "actual": 6029689.0,
+      "actual_lakhs": 60.3,
+      "linear_regression": 5994827.698144421,
+      "linear_regression_lakhs": 59.95,
+      "knn": 6999261.827088049,
+      "knn_lakhs": 69.99,
+      "random_forest": 5743839.89247619,
+      "random_forest_lakhs": 57.44
+    },
+    {
+      "id": 111,
+      "actual": 19766018.0,
+      "actual_lakhs": 197.66,
+      "linear_regression": 18106151.76540191,
+      "linear_regression_lakhs": 181.06,
+      "knn": 19651987.520323623,
+      "knn_lakhs": 196.52,
+      "random_forest": 18433216.375809524,
+      "random_forest_lakhs": 184.33
+    },
+    {
+      "id": 112,
+      "actual": 4542226.0,
+      "actual_lakhs": 45.42,
+      "linear_regression": 4381807.393481413,
+      "linear_regression_lakhs": 43.82,
+      "knn": 5608773.384325476,
+      "knn_lakhs": 56.09,
+      "random_forest": 4841242.760809526,
+      "random_forest_lakhs": 48.41
+    },
+    {
+      "id": 113,
+      "actual": 10548433.0,
+      "actual_lakhs": 105.48,
+      "linear_regression": 13672196.689578824,
+      "linear_regression_lakhs": 136.72,
+      "knn": 13508240.36607314,
+      "knn_lakhs": 135.08,
+      "random_forest": 9939343.039793648,
+      "random_forest_lakhs": 99.39
+    },
+    {
+      "id": 114,
+      "actual": 13135392.0,
+      "actual_lakhs": 131.35,
+      "linear_regression": 13400717.60465854,
+      "linear_regression_lakhs": 134.01,
+      "knn": 12788148.552993689,
+      "knn_lakhs": 127.88,
+      "random_forest": 11992166.513488099,
+      "random_forest_lakhs": 119.92
+    },
+    {
+      "id": 115,
+      "actual": 8347981.0,
+      "actual_lakhs": 83.48,
+      "linear_regression": 7692759.493077415,
+      "linear_regression_lakhs": 76.93,
+      "knn": 9646776.43178575,
+      "knn_lakhs": 96.47,
+      "random_forest": 7870354.331023808,
+      "random_forest_lakhs": 78.7
+    },
+    {
+      "id": 116,
+      "actual": 13281764.0,
+      "actual_lakhs": 132.82,
+      "linear_regression": 14694389.274854492,
+      "linear_regression_lakhs": 146.94,
+      "knn": 10553719.748233896,
+      "knn_lakhs": 105.54,
+      "random_forest": 12977153.127666667,
+      "random_forest_lakhs": 129.77
+    },
+    {
+      "id": 117,
+      "actual": 5717646.0,
+      "actual_lakhs": 57.18,
+      "linear_regression": 5032780.992742595,
+      "linear_regression_lakhs": 50.33,
+      "knn": 7807031.816555271,
+      "knn_lakhs": 78.07,
+      "random_forest": 5471870.10445238,
+      "random_forest_lakhs": 54.72
+    },
+    {
+      "id": 118,
+      "actual": 7142651.0,
+      "actual_lakhs": 71.43,
+      "linear_regression": 6402283.077309031,
+      "linear_regression_lakhs": 64.02,
+      "knn": 7484568.186077783,
+      "knn_lakhs": 74.85,
+      "random_forest": 6706751.205857141,
+      "random_forest_lakhs": 67.07
+    },
+    {
+      "id": 119,
+      "actual": 5159756.0,
+      "actual_lakhs": 51.6,
+      "linear_regression": 7548302.194834218,
+      "linear_regression_lakhs": 75.48,
+      "knn": 3960241.5098698814,
+      "knn_lakhs": 39.6,
+      "random_forest": 5610607.548829365,
+      "random_forest_lakhs": 56.11
+    },
+    {
+      "id": 120,
+      "actual": 1876354.0,
+      "actual_lakhs": 18.76,
+      "linear_regression": -651614.5935527282,
+      "linear_regression_lakhs": -6.52,
+      "knn": 2579411.4419408976,
+      "knn_lakhs": 25.79,
+      "random_forest": 2097943.2683571433,
+      "random_forest_lakhs": 20.98
+    }
+  ],
+  "tier_labels": [
+    "Budget (< \u20b960L)",
+    "Mid-Range (\u20b960L\u2013\u20b91Cr)",
+    "Premium (\u20b91Cr\u2013\u20b91.75Cr)",
+    "Luxury (> \u20b91.75Cr)"
+  ],
+  "best_overall_model": "random_forest"
+}

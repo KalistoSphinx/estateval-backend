@@ -1,0 +1,188 @@
+{
+  "features": [
+    "City",
+    "Locality_Tier",
+    "BHK",
+    "Bathrooms",
+    "Super_Area_sqft",
+    "Carpet_Area_sqft",
+    "Floor_No",
+    "Total_Floors",
+    "Property_Age_years",
+    "Parking",
+    "Furnishing",
+    "Lift",
+    "Gated_Society",
+    "Distance_to_Metro_km",
+    "Distance_to_CityCenter_km",
+    "Nearby_School_km",
+    "Nearby_Hospital_km",
+    "Crime_Rate_Index"
+  ],
+  "categorical_cols": [
+    "City",
+    "Locality_Tier",
+    "Furnishing"
+  ],
+  "numerical_cols": [
+    "BHK",
+    "Bathrooms",
+    "Super_Area_sqft",
+    "Carpet_Area_sqft",
+    "Floor_No",
+    "Total_Floors",
+    "Property_Age_years",
+    "Parking",
+    "Lift",
+    "Gated_Society",
+    "Distance_to_Metro_km",
+    "Distance_to_CityCenter_km",
+    "Nearby_School_km",
+    "Nearby_Hospital_km",
+    "Crime_Rate_Index"
+  ],
+  "cities": [
+    "Bangalore",
+    "Hyderabad",
+    "Mumbai",
+    "Nagpur",
+    "Pune"
+  ],
+  "locality_tiers": [
+    "Budget",
+    "Mid",
+    "Premium"
+  ],
+  "furnishing_options": [
+    "Unfurnished",
+    "Semi-Furnished",
+    "Fully-Furnished"
+  ],
+  "ranges": {
+    "BHK": {
+      "min": 1.0,
+      "max": 5.0,
+      "mean": 2.3041666666666667,
+      "median": 2.0,
+      "std": 0.934909341511407
+    },
+    "Bathrooms": {
+      "min": 1.0,
+      "max": 7.0,
+      "mean": 2.5360833333333335,
+      "median": 2.0,
+      "std": 1.1024817225474843
+    },
+    "Super_Area_sqft": {
+      "min": 350.0,
+      "max": 3010.4,
+      "mean": 1018.2603416666666,
+      "median": 950.5,
+      "std": 379.9741891366887
+    },
+    "Carpet_Area_sqft": {
+      "min": 250.0,
+      "max": 2285.9,
+      "mean": 763.5633833333333,
+      "median": 715.55,
+      "std": 291.09549112728047
+    },
+    "Floor_No": {
+      "min": 0.0,
+      "max": 32.0,
+      "mean": 7.599,
+      "median": 7.0,
+      "std": 5.685351874378105
+    },
+    "Total_Floors": {
+      "min": 3.0,
+      "max": 38.0,
+      "mean": 15.232666666666667,
+      "median": 15.0,
+      "std": 5.7076043676709975
+    },
+    "Property_Age_years": {
+      "min": 0.0,
+      "max": 33.0,
+      "mean": 8.615916666666667,
+      "median": 8.0,
+      "std": 5.374815101889911
+    },
+    "Parking": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.6400833333333333,
+      "median": 1.0,
+      "std": 0.4799956868318406
+    },
+    "Lift": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.9241666666666667,
+      "median": 1.0,
+      "std": 0.26474228901994834
+    },
+    "Gated_Society": {
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.5886666666666667,
+      "median": 1.0,
+      "std": 0.49209592773062344
+    },
+    "Distance_to_Metro_km": {
+      "min": 0.2,
+      "max": 11.6,
+      "mean": 2.1538199999999996,
+      "median": 1.83,
+      "std": 1.817500953711734
+    },
+    "Distance_to_CityCenter_km": {
+      "min": 0.5,
+      "max": 39.8,
+      "mean": 14.101654166666668,
+      "median": 14.01,
+      "std": 7.1499481712786075
+    },
+    "Nearby_School_km": {
+      "min": 0.2,
+      "max": 8.71,
+      "mean": 2.8078174999999996,
+      "median": 2.8,
+      "std": 1.3527861610617598
+    },
+    "Nearby_Hospital_km": {
+      "min": 0.3,
+      "max": 8.81,
+      "mean": 3.059476666666667,
+      "median": 3.0,
+      "std": 1.5078512395908348
+    },
+    "Crime_Rate_Index": {
+      "min": 5.0,
+      "max": 85.4,
+      "mean": 41.756825,
+      "median": 41.8,
+      "std": 13.716940242762243
+    }
+  },
+  "defaults": {
+    "City": "Bangalore",
+    "Locality_Tier": "Mid",
+    "BHK": 2,
+    "Bathrooms": 2,
+    "Super_Area_sqft": 1050.0,
+    "Carpet_Area_sqft": 820.0,
+    "Floor_No": 5,
+    "Total_Floors": 14,
+    "Property_Age_years": 5,
+    "Parking": 1,
+    "Furnishing": "Semi-Furnished",
+    "Lift": 1,
+    "Gated_Society": 1,
+    "Distance_to_Metro_km": 1.8,
+    "Distance_to_CityCenter_km": 12.0,
+    "Nearby_School_km": 2.5,
+    "Nearby_Hospital_km": 2.8,
+    "Crime_Rate_Index": 35.0
+  }
+}
