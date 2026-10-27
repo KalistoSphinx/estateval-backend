@@ -94,7 +94,8 @@ def load_models_and_metadata():
     model_files = {
         "linear_regression": "linear_regression.joblib",
         "knn": "knn.joblib",
-        "random_forest": "random_forest.joblib"
+        "random_forest": "random_forest.joblib",
+        "decision_tree": "decision_tree.joblib"
     }
 
     for key, filename in model_files.items():
@@ -123,8 +124,8 @@ def read_root():
 @app.get("/api/health")
 def health_check():
     return {
-        "status": "healthy" if len(models) == 3 else "degraded",
-        "models_loaded": {k: (k in models) for k in ["linear_regression", "knn", "random_forest"]},
+        "status": "healthy" if len(models) == 4 else "degraded",
+        "models_loaded": {k: (k in models) for k in ["linear_regression", "knn", "random_forest", "decision_tree"]},
         "metrics_available": metrics_data is not None
     }
 
@@ -183,14 +184,15 @@ def predict_price(features: HouseFeatures):
     target_models = (
         [features.model]
         if features.model and features.model in models
-        else ["linear_regression", "knn", "random_forest"]
+        else ["linear_regression", "knn", "random_forest", "decision_tree"]
     )
 
     prices_list = []
     display_names = {
         "linear_regression": "Linear Regression (Ridge)",
         "knn": "K-Nearest Neighbors",
-        "random_forest": "Random Forest Regressor"
+        "random_forest": "Random Forest Regressor",
+        "decision_tree": "Decision Tree Regressor"
     }
 
     for m_key in target_models:

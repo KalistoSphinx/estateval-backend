@@ -20,7 +20,7 @@ class HouseFeatures(BaseModel):
     Nearby_School_km: float = Field(default=2.5, ge=0.0, le=30.0, description="Distance to nearest school in km")
     Nearby_Hospital_km: float = Field(default=2.8, ge=0.0, le=30.0, description="Distance to nearest hospital in km")
     Crime_Rate_Index: float = Field(default=35.0, ge=0.0, le=100.0, description="Crime rate safety index score (lower is safer)")
-    model: Optional[str] = Field(default="all", description="Model to use: 'all', 'linear_regression', 'knn', or 'random_forest'")
+    model: Optional[str] = Field(default="all", description="Model to use: 'all', 'linear_regression', 'knn', 'random_forest', or 'decision_tree'")
 
 class ModelPrediction(BaseModel):
     model_key: str
